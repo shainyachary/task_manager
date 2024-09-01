@@ -1,15 +1,8 @@
-import React, {
-  useReducer,
-  useCallback,
-  useMemo,
-  useEffect,
-  useState,
-} from "react";
+import React, { useReducer, useCallback, useMemo, useEffect } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import TaskSearch from "./components/TaskSearch";
 import TaskDashboard from "./components/TaskDashboard";
-import DarkModeToggle from "./components/DarkModeToggle";
 import TaskEdit from "./components/TaskEdit";
 import "./App.css";
 
@@ -86,7 +79,7 @@ function App() {
   );
 
   const deleteTask = useCallback((id) => {
-    console.log(`Deleting task with ID: ${id}`); // Debug log
+    console.log(`Deleting task with ID: ${id}`);
     dispatch({ type: "DELETE_TASK", payload: id });
   }, []);
 

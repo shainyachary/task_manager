@@ -9,15 +9,11 @@ function DarkModeToggle() {
   }, [darkMode]);
 
   return (
-    // <label>
-    //   <input
-    //     type="checkbox"
-    //     checked={darkMode}
-    //     onChange={() => setDarkMode(!darkMode)}
-    //   />
-    //   Dark Mode
-    // </label>
-    <div className="btn-toggle" onClick={() => setDarkMode(!darkMode)}>
+    <div
+      className="btn-toggle"
+      onClick={() => setDarkMode(!darkMode)}
+      style={{ cursor: "pointer" }}
+    >
       {darkMode ? <FaSun color="yellow" size={20} /> : <FaMoon size={20} />}
     </div>
   );
