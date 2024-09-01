@@ -18,7 +18,7 @@ function DarkModeToggle() {
     //   Dark Mode
     // </label>
     <div className="btn-toggle" onClick={() => setDarkMode(!darkMode)}>
-      {darkMode ? <FaSun color="yellow" /> : <FaMoon />}
+      {darkMode ? <FaSun color="yellow" size={20} /> : <FaMoon size={20} />}
     </div>
   );
 }

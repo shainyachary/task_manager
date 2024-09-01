@@ -26,26 +26,39 @@ function TaskEdit({ task, onSave, onCancel }) {
   return (
     <div className="edit-form">
       <input
+        className="form-control my-2"
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
+        className="form-control my-2"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
       <input
+        className="form-control my-2"
         type="date"
         value={dueDate}
         onChange={(e) => setDueDate(e.target.value)}
       />
-      <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+      <select
+        className="form-control my-2"
+        value={priority}
+        onChange={(e) => setPriority(e.target.value)}
+      >
         <option value="Low">Low</option>
         <option value="Medium">Medium</option>
         <option value="High">High</option>
       </select>
-      <button onClick={handleSave}>Save</button>
-      <button onClick={onCancel}>Cancel</button>
+      <div className="d-flex gap-3 justify-content-center my-3">
+        <button className="px-4 btn btn-success" onClick={handleSave}>
+          Save
+        </button>
+        <button className="px-4 btn btn-danger" onClick={onCancel}>
+          Cancel
+        </button>
+      </div>
     </div>
   );
 }

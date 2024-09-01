@@ -3,16 +3,18 @@ import React from "react";
 function TaskDashboard({ tasks }) {
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((task) => task.completed).length;
-  const overdueTasks = tasks.filter(
-    (task) => new Date(task.dueDate) < new Date() && !task.completed
-  ).length;
 
   return (
-    <div className="dashboard">
-      <h2>Dashboard</h2>
-      <p>Total Tasks: {totalTasks}</p>
-      <p>Completed Tasks: {completedTasks}</p>
-      <p>Overdue Tasks: {overdueTasks}</p>
+    <div className="dashboard mt-4">
+      <h2 style={{ fontSize: "16px", fontWeight: "bolder" }}>Dashboard</h2>
+      <div className="d-flex gap-3 text-center">
+        <p style={{ fontSize: "12px", fontWeight: "bold" }}>
+          Total Tasks: {totalTasks}
+        </p>
+        <p style={{ fontSize: "12px", fontWeight: "bold" }}>
+          Completed Tasks: {completedTasks}
+        </p>
+      </div>
     </div>
   );
 }

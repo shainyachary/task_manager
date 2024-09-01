@@ -13,6 +13,9 @@ import DarkModeToggle from "./components/DarkModeToggle";
 import TaskEdit from "./components/TaskEdit";
 import "./App.css";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+
 const initialState = {
   tasks: JSON.parse(localStorage.getItem("tasks")) || [],
   searchQuery: "",
@@ -58,7 +61,6 @@ function taskReducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(taskReducer, initialState);
-  const [isFormVisible, setIsFormVisible] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(state.tasks));
@@ -78,8 +80,7 @@ function App() {
         alert("Task title must be unique.");
         return;
       }
-      dispatch({ type: "ADD_TASK", payload: task });
-      setIsFormVisible(false); // Hide form after adding task
+      dispatch({ type: "ADD_TASK", payload: task }); // Hide form after adding task
     },
     [state.tasks]
   );
@@ -154,22 +155,42 @@ function App() {
 
   return (
     <div className="app">
-      <DarkModeToggle />
-      <button onClick={() => setIsFormVisible(!isFormVisible)}>
-        {isFormVisible ? "Cancel" : "Add Task"}
-      </button>
-      {isFormVisible && <TaskForm addTask={addTask} />}
+      <TaskForm addTask={addTask} />
+      <div className="my-4">
+        <TaskSearch onSearch={onSearch} />
+        <div className="filter-buttons d-flex justify-content-center my-3 gap-1">
+          <button
+            className="px-4 border border-0 rounded-pill text-white bg-dark"
+            style={{ fontSize: "14px", fontWeight: "600" }}
+            onClick={() => handlePriorityFilterChange("All")}
+          >
+            All
+          </button>
+          <button
+            className="px-4 border border-0 rounded-pill text-white bg-dark"
+            style={{ fontSize: "14px", fontWeight: "600" }}
+            onClick={() => handlePriorityFilterChange("High")}
+          >
+            High
+          </button>
+          <button
+            className="px-4 border border-0 rounded-pill text-white bg-dark"
+            style={{ fontSize: "14px", fontWeight: "600" }}
+            onClick={() => handlePriorityFilterChange("Medium")}
+          >
+            Medium
+          </button>
+          <button
+            className="px-4 border border-0 rounded-pill text-white bg-dark"
+            style={{ fontSize: "14px", fontWeight: "600" }}
+            onClick={() => handlePriorityFilterChange("Low")}
+          >
+            Low
+          </button>
+        </div>
+      </div>
 
       <TaskDashboard tasks={state.tasks} />
-      <TaskSearch onSearch={onSearch} />
-      <div className="filter-buttons">
-        <button onClick={() => handlePriorityFilterChange("All")}>All</button>
-        <button onClick={() => handlePriorityFilterChange("High")}>High</button>
-        <button onClick={() => handlePriorityFilterChange("Medium")}>
-          Medium
-        </button>
-        <button onClick={() => handlePriorityFilterChange("Low")}>Low</button>
-      </div>
       {state.editingTask && (
         <TaskEdit
           task={state.editingTask}

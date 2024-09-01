@@ -1,66 +1,39 @@
 body.dark-mode {
-  background-color: #333;
-  color: white;
+  background-color: #333 !important;
+  color: #111;
 }
 body {
-  background-color: #e2e2e2;
+  background-color: #32d6ad !important;
 }
 
 .app {
-  padding: 3em;
+  padding: 2em;
   width: clamp(400px, 30%, 100%);
   margin: 3rem auto;
   border-radius: 1em;
-  position: relative;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 2px 8px 32px 0 rgba(0, 1, 11, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: #9cecd8 !important;
+  box-shadow: 0.2em 0.5em 1em rgba(28, 125, 101, 0.9);
 }
-/* .app.dark-mode {
-  background-color: #c1c1c1;
-} */
-
-form input,
-form textarea,
-form select,
-form button {
-  display: block;
-  margin: 10px 0;
+body.dark-mode .app {
+  background-color: #999 !important;
+  box-shadow: 0.2em 0.5em 1em rgba(0, 0, 0, 0.4);
 }
-
-.task-item {
-  padding: 10px;
-  border: 1px solid #ddd;
-  margin: 5px 0;
-}
-
 .task.completed {
   text-decoration: line-through;
   opacity: 0.6;
-}
-
-.edit-form {
-  border: 1px solid #ddd;
-  padding: 10px;
-  background-color: #f9f9f9;
 }
 
 .error {
   color: red;
 }
 
-.dashboard {
-  margin: 20px 0;
+.task {
+  background-color: #b8f1e3 !important;
+  padding: 0.6em 1em 0.1em;
+  border-radius: 0.5em;
+  border: 1px solid #68a395;
 }
-
-.dark-mode-toggle label {
-  display: block;
-}
-.btn-toggle {
-  position: absolute;
-  right: 1.5em;
-  top: 1.5em;
+body.dark-mode .task {
+  background-color: #c4c4c4 !important;
 }
